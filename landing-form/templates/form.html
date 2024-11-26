@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% block title %} Заполните форму {% endblock %}
+{% block content %}
+
+
+<h1 class="container" id="form_h1">Выберите нужную технику</h1>
+
+<form action="/submit" method="POST" enctype="multipart/form-data">
+    <!-- Category -->
+     <div class="form-item">
+        <label for="category">Тип техники</label>
+        <select id="category" name="category" required>
+                <option value="">Выберите тип</option>
+                <option value="Самосвал">Самосвал</option>
+                <option value="Эскаватор">Эскаватор</option>
+                <option value="Погрузчик">Погрузчик</option>
+                <option value="Трактор">Трактор</option>
+        </select>
+    </div>
+
+    <div class="form-item">
+        <div class="label">Грузоподъемность</div>
+        <div class="form_radio_btn">
+            <input id="radio-1" type="radio" name="capacity" value="15" checked>
+            <label for="radio-1">15 тонн</label>
+        </div>
+        <div class="form_radio_btn">
+            <input id="radio-2" type="radio" name="capacity" value="20">
+            <label for="radio-2">20 тонн</label>
+        </div>
+        
+        <div class="form_radio_btn">
+            <input id="radio-3" type="radio" name="capacity" value="30">
+            <label for="radio-3">30 тонн</label>
+        </div>
+    </div>
+
+    <!-- Description -->
+    <div class="form-item">
+        <label for="description">Техническое задание</label>
+        <textarea id="description" name="description" placeholder="Опишите вид работы? Глубина копания? Какой объем ковша необходим? Требуется ли пропуск на объект?" rows="4" cols="50"></textarea>
+    </div>
+        
+    <!-- Upload pdf -->
+    <div class="form-item">
+        <label for="pdf">Можете также прикрепить ТЗ в формате .pdf</label>
+        <input type="file" id="pdf" name="pdf" accept=".pdf">
+    </div> 
+
+    <!-- Features -->
+    <div class="form-item">
+        <label>
+            Параметры
+            <div class="label-decr">Отметьте параметры техники, которые необходимы для выполнения заказа</div>
+        </label>
+        <div class="form_check">
+            <input type="checkbox" id="basket" name="features" value="Монтажная корзина">
+            <label for="basket">Монтажная корзина</label>
+        </div>    
+        <div class="form_check">
+            <input type="checkbox" id="drill" name="features" value="Ямобур">
+            <label for="drill">Ямобур</label>
+        </div>
+        <div class="form_check">
+            <input type="checkbox" id="hammer" name="features" value="Гидромолот">
+            <label for="hammer">Гидромолот</label>
+        </div>
+        <div class="form_check">
+            <input type="checkbox" id="crusher" name="features" value="Крашер">
+            <label for="crusher">Крашер</label>
+        </div>
+        <div class="form_check">
+            <input type="checkbox" id="cutter" name="features" value="Грунторез">
+            <label for="cutter">Грунторез</label>
+        </div>
+        <div class="form_check">
+            <input type="checkbox" id="pitchfork" name="features" value="Вилы">
+            <label for="pitchfork">Вилы</label>
+        </div>
+    </div> 
+
+    <!-- Manufacture Date -->
+    <div class="form-item">
+        <label for="manufacture_date">Дата</label>
+        <input type="date" id="manufacture_date" name="manufacture_date" required>
+    </div> 
+
+    <!-- Rental Rate -->
+    <div class="form-item">
+        <label for="rental_rate">Срок аренды</label>
+        <input type="number" id="rental_rate" name="rental_rate" min="1" max="365" step="1" required>
+        <span class="days">дней</span>
+    </div>
+
+    <!-- initials -->
+    <div class="form-item">
+        <label for="name">Ваше ФИО</label>
+        <input type="text" id="name" name="initials" required>
+    </div> 
+
+    <!-- email -->
+    <div class="form-item">
+        <label for="email">Ваш e-mail</label>
+        <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+    </div> 
+
+     <!-- phone -->
+     <div class="form-item">
+        <label for="phone">
+            Ваш телефон
+            <div class="label-decr">Пожалуйста, введите номер в формате 8-900-123-4567</div>
+        </label>
+        <input type="tel" id="phone" name="phone" placeholder="8-900-123-4567" pattern="[0-9]-[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+    </div> 
+
+    <!-- telegram link -->
+    <div class="form-item">
+        <label for="tg">
+            Ссылка на ваш телеграм
+            <div class="label-decr">Для более быстрого общения вы можете оставить ссылку на ваш телеграм в формате https://t.me/username</div>
+        </label>
+        <input type="url" id="tg" name="tg" placeholder="https://t.me/username" pattern="https://t.me/.*">
+    </div> 
+
+    <!-- calculated cost (category * (1 + advance/100) * days) -->
+    <input type="hidden" name="advance" value="50">
+
+    <!-- Submit Button -->
+    <input type="submit" value="Отправить">
+</form>
+
+
+{% endblock %}

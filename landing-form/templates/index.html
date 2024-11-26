@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %} Онлайн-сервис аренды спецтехники {% endblock %}
+{% block content %}
+        <section>
+            <div class="container">
+                <div class="section__title title__text">Сэкономим ваше время: услуги спецтехники в аренду без звонков и переговоров</div>
+            </div>
+            
+            <div class="container section__descr">
+                <div class="block__descr">
+                    <div class="block1_text">Помощь в подборе и аренде спецтехники</div>
+                    <div class="block_button">
+                        <a class="regular_button" href="{{ url_for('form')}}">
+                            Заполнить форму
+                        </a>
+                    </div>
+                    
+                </div>
+                <div class="block_img">
+                    <img id="block1_pic" src="{{ url_for('static', filename="img/noroot.webp") }}"> 
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="section__title title__text">Когда мы нужны бизнесу</div>
+            </div>
+            <div class="container card__container">
+                <div class="card">
+                    <img src="{{ url_for('static', filename="img/clock_light.png") }}">
+                    <div class="card__title">Нужно экономить время на поиск техники и переговоры</div>
+                    <div class="card__descr">Алгоритм Спецшеринга подбирает технику под ваш запрос, вы не занимаетесь поиском и звонками</div>
+                </div>
+                <div class="card">
+                    <img src="{{ url_for('static', filename="img/help.png") }}">
+                    <div class="card__title">Нужно быть уверенным что меня не подведут</div>
+                    <div class="card__descr">Если что-то пойдёт не так, то наша служба поддержки придет на помощь</div>
+                </div>
+                <div class="card">
+                    <img src="{{ url_for('static', filename="img/wallet.png") }}">
+                    <div class="card__title">Нужно безопасно и удобно оплачивать услуги спецтехники</div>
+                    <div class="card__descr">Расчёты ведутся с Спецшерингом, перечислением или банковской картой</div>
+                </div>  
+                <div class="card">
+                    <img src="{{ url_for('static', filename="img/cake.png") }}">
+                    <div class="card__title">Нужно заказывать все виды техники в одном месте</div>
+                    <div class="card__descr">У нас собраны все самые популярные виды техники</div>
+                </div>  
+                <div class="card">
+                    <img src="{{ url_for('static', filename="img/folder.png") }}">
+                    <div class="card__title">Нужно вести прозрачную бухгалтерию</div>
+                    <div class="card__descr">Предоставим закрывающие документы в электронном и печатном виде</div>
+                </div>  
+                <div class="card">
+                    <img src="{{ url_for('static', filename="img/emoji_light.png") }}"> 
+                    <div class="card__title">Нужна простота и удобство в аренде услуг спецтехники</div>
+                    <div class="card__descr">Спецшеринг - это удобный и простой сервис аренды услуг строительной техники для вашего бизнеса</div>
+                </div>  
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="section__title title__text centered_text">Контролируйте отработанные часы и расходы на аренду услуг спецтехники в профиле компании</div>
+            </div>
+            <div class="container ">
+                <div class="block_img">
+                    <img class="block" src="{{ url_for('static', filename="img/Scene_1.png") }}">
+                </div>
+                <div class="block__descr block3_right">
+                    <div class="block3_text">
+                        Просматривайте историю заказов
+                            Отслеживайте объём часов и расходы
+                        Следите за балансом
+                    </div>
+                    <div class="block_button">
+                        <a class="regular_button" href="https://specsharing.ru/authorization?button=registration_on_costs">
+                            Создать профиль компании
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container section__descr" >
+                <div class="block__descr block3_right block" id="block4">
+                    <div class="block4__title block">Нужна консультация менеджера?</div>
+                    <div class="block4__descr">Оставьте заявку, и мы свяжемся с вами для обсуждения деталей </div>
+                    <div class="block_button">
+                        <a class="regular_button" href="https://specsharing.ru/ru/call-back">Оставить заявку</a>
+                    </div>
+                </div>
+                <div class="container block_img">
+                    <img id="manager_img" src="{{ url_for('static', filename="img/manager.webp") }}">  
+                </div>
+            </div>
+        </section>
+{% endblock %}

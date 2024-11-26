@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %} Результаты формы {% endblock %}
+{% block content %}
+    <h1 class="container" id="form_h1">Проверьте введенные данные</h1>
+    <div class="results">
+        <h2 class="result-h2">Ваша заявка</h2>
+        <ul>
+            <li><div>Тип техники:</div> {{ form_data.get('category') }}</li>
+            <li><div>Грузоподъемность:</div> {{ form_data.get('capacity') }} тонн</li>
+            <li><div>Техническое задание:</div> <div id="result_descr">{{ form_data.get('description') }}</div> </li>
+            <li><div>Параметры:</div> {{ form_data.getlist('features') | join(', ') }}</li>
+            <li><div>Дата:</div> {{ form_data.get('manufacture_date') }}</li>
+            <li><div>Срок аренды (дней):</div> {{ form_data.get('rental_rate') }}  </li>
+            <li><div>ФИО:</div> {{ form_data.get('initials') }}</li>
+            <li><div>Email:</div> {{ form_data.get('email') }}</li>
+            <li><div>Телефон:</div> {{ form_data.get('phone') }}</li>
+            <li><div>Телеграм:</div> {{ form_data.get('tg') }}</li>
+            <li><div>Объем загруженного файла:</div>
+                {% if file_details %}
+                    {{ (file_details.size / 1024) | round(2) }} KB
+                {% else %}
+                    Вы не загружали файл с ТЗ
+                {% endif %}
+            </li>
+        </ul>
+
+        <div class="result_cost">Итоговая стоимость услуг: {{ cost }} руб</div>
+
+        
+        
+        <div class="block_button">
+             <a class="regular_button" href="#""> <!--<a class="regular_button" href="{{ url_for('form')}}"></a> -->
+                Да, все верно
+            </a>
+        </div>
+    </div>
+{% endblock %}
